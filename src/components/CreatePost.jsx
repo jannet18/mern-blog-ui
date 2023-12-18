@@ -33,11 +33,13 @@ function CreatePost() {
     createData.set("content", content);
     createData.set("file", files[0]);
 
-    const response = await fetch("http://localhost:4000/post", {
-      method: "POST",
-      body: createData,
-      credentials: "include",
-    });
+    const response =
+      //  await fetch("http://localhost:4000/post",
+      await fetch("https://blog-backend-q1yl.onrender.com/post", {
+        method: "POST",
+        body: createData,
+        credentials: "include",
+      });
     console.log(await response.json());
     if (response.ok) {
       setRedirect(true);

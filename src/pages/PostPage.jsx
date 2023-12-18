@@ -8,7 +8,8 @@ export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`).then((response) =>
+    // fetch(`http://localhost:4000/post/${id}`)
+    fetch(`https://blog-backend-q1yl.onrender.com/${id}`).then((response) =>
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       })
@@ -26,12 +27,15 @@ export default function PostPage() {
         <p> By ~ {postInfo?.author?.username}</p>
       </div>
       <div className="image">
-        <img src={`http://localhost:4000/${postInfo?.cover}`} alt="" />
+        <img
+          src={`https://blog-backend-q1yl.onrender.com/${postInfo?.cover}`}
+          alt=""
+        />
       </div>
 
       <div dangerouslySetInnerHTML={{ __html: postInfo?.content }}></div>
       <div className="edit-post">
-        <Link to={`/post/edit/${postInfo?._id}`} className="edit-btn">
+        <Link to={`/edit/${postInfo?._id}`} className="edit-btn">
           {userInfo?.id === postInfo?.id}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"

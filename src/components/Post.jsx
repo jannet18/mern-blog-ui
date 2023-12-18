@@ -15,7 +15,11 @@ export const Post = ({
     <>
       <div className="post">
         <Link to={`/post/${_id}`}>
-          <img src={"http://localhost:4000/" + cover} alt="/" />
+          {/* <img src={"http://localhost:4000/" + cover} alt="/" /> */}
+          <img
+            src={"https://blog-backend-q1yl.onrender.com/" + cover}
+            alt="/"
+          />
         </Link>
 
         <div className="content">

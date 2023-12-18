@@ -9,7 +9,8 @@ export const Register = () => {
   async function register(e) {
     e.preventDefault();
     if (username && password) {
-      await fetch("http://localhost:4000/register", {
+      // await fetch("http://localhost:4000/register",
+      await fetch("https://blog-backend-q1yl.onrender.com/register", {
         method: "POST",
         body: JSON.stringify({
           username,
